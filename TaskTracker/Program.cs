@@ -6,14 +6,13 @@ namespace TaskTracker
     {
         static void Main(string[] args)
         {
-            byte[] content;
             List<Taskk> tasks = new List<Taskk>();
 
             string path = (AppContext.BaseDirectory + "Tasks.json");
             var fileExisist = File.Exists(path);
             if (fileExisist)
             {
-                content = File.ReadAllBytes(path);
+                byte[] content = File.ReadAllBytes(path);
                 if (content.Length == 4 )
                 {
                     Console.WriteLine("List of tasks is empty");
@@ -27,8 +26,9 @@ namespace TaskTracker
             { 
             File.WriteAllText(path, "[]");
             }
-            
-            TaskLogic taskLogic = new TaskLogic(tasks);
+
+            Console.WriteLine("Welcome in task tacker, what You want to do ? ");
+
             
  
 
