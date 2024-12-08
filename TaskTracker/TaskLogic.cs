@@ -24,11 +24,10 @@ namespace TaskTracker
                 Console.WriteLine("No description found!");
                 return 0;
             }
-            int taskAmount = _tasks.Count;
-
+            int maxId = _tasks.Any() ? _tasks.Max(t => t.Id) : 0;
             Taskk task = new Taskk()
             {
-                Id = taskAmount + 1,
+                Id = maxId + 1,
                 Description = taskDescription,
                 Status = Status.toDo,
                 CreatedAt = DateTime.Now,
@@ -99,7 +98,6 @@ namespace TaskTracker
             }
             taskToUpdate.Status = status;
             taskToUpdate.UpdatedAt = DateTime.Now;
-            Console.WriteLine("Task Updated!");
             return 1;
         }
     }

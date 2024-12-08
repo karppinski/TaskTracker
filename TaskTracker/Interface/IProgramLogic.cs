@@ -14,6 +14,5 @@ namespace TaskTracker.Interface
         public void GetAllTasks();
         public void GetTasksByStatus();
         public void UpdateStatus();
-        public void QuitAndSave();
     }
 }

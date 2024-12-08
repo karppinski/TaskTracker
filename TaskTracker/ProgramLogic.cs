@@ -93,12 +93,56 @@ namespace TaskTracker
 
         public void GetTasksByStatus()
         {
-            Console.WriteLine(""
+            Console.WriteLine("Task of waht status do you want display? Choose and press enter");
+            Console.WriteLine("1. To do.");
+            Console.WriteLine("2. In progress.");
+            Console.WriteLine("3. Done.");
+            int userInput = int.Parse(Console.ReadLine());
+            switch (userInput)
+            {
+                case 1:
+                    _taskLogic.GetTasksByStatus(Status.toDo);
+                    break;   
+                case 2:
+                    _taskLogic.GetTasksByStatus(Status.inProgress);
+                    break;
+                case 3:
+                    _taskLogic.GetTasksByStatus(Status.done);
+                    break;
+            }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+
         }
 
         public void UpdateStatus()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("What is Id of task that you want to update? Insert and press enter");
+            int taskId = int.Parse(Console.ReadLine());
+            Console.WriteLine("What status should it have now on? Choose and press enter");
+            Console.WriteLine("1. To do.");
+            Console.WriteLine("2. In progress.");
+            Console.WriteLine("3. Done.");
+            int userInput = int.Parse(Console.ReadLine());
+            switch (userInput)
+            {
+                case 1:
+                    _taskLogic.UpdateStatus(taskId, Status.toDo);
+                    break;
+                case 2:
+                    _taskLogic.UpdateStatus(taskId, Status.inProgress);
+                    break;
+                case 3:
+                    _taskLogic.UpdateStatus(taskId, Status.done);
+                    break;
+            }
+            Console.WriteLine("Task Updated!");
+
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
         }
+
     }
 }
